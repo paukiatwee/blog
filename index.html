@@ -1,1 +1,11 @@
-Hellow world
+---
+layout: default
+title: Welcome
+---
+{% for post in site.posts limit:10 %}
+  <a href="{{ post.url }}" title="{{ post.title }}" rel="bookmark"><h3>{{ post.title }}</h3></a>
+  <small>{{ post.date | date_to_string }}</small>
+  <div class="content">
+    {{post.content}}
+  </div>
+{% endfor %}

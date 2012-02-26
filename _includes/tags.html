@@ -1,0 +1,10 @@
+<div class="well">
+  <h3>Tags</h3>
+  {% if site.tags %}
+    {% for tag in site.tags %}
+      <a href="/tag/{{ tag | first }}.html">{{ tag | first }}</a>
+    {% endfor %}
+  {% else %}
+    No any tag yet.
+  {% endif %}
+</div>
