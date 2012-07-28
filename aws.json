@@ -9,7 +9,7 @@
             "type": "number"
         }
     ],
-    "rows": [
+    "asia": [
         {
         	"grade": "on-demand",
             "type": "t1.micro",
