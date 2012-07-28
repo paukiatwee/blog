@@ -1,19 +1,16 @@
----
-layout: rss-feed
----
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
 	<channel>
-		<title>{{ site.name }}</title>
-		<description>{{ site.description }}</description>
-		<link>{{ site.url }}</link>
-		{% for post in site.posts limit:10 %}
+		<title>Pau Kiat Wee's Blog</title>
+		<description></description>
+		<link>http://paukiatwee.github.com</link>
+		
 			<item>
-				<title>{{ post.title }}</title>
-				<description>{{ post.content | xml_escape }}</description>
-				<published>{{ post.date }}</published>
-				<link>{{ site.url }}{{ post.url }}</link>
+				<title>Hello World</title>
+				<description>&lt;p&gt;This is hello world post that running on &lt;a href='https://help.github.com/categories/20/articles' target='_blank'&gt;Github page&lt;/a&gt; and &lt;a href='https://github.com/mojombo/jekyll/' target='_blank'&gt;Jekyll&lt;/a&gt;!&lt;/p&gt;</description>
+				<published>2012-07-12 00:00:00 +0800</published>
+				<link>http://paukiatwee.github.com/hello-world/</link>
 			</item>
-		{% endfor %}
+		
 	</channel>
 </rss>
