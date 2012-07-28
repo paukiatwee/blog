@@ -129,7 +129,7 @@ module Jekyll
     # Returns string
     def category_links(categories)
       categories = categories.sort!.map do |item|
-        '<a href="/blog/category/'+item+'/">'+item+'</a>'
+        '<a href="/categories/'+item+'/">'+item+'</a>'
       end
       
       connector = "and"
