@@ -26,12 +26,7 @@
     {% else %}
     <title>{{page.title}}</title>
     {% endif %}
-    <link rel="stylesheet/less" type="text/css" href="/css/bootstrap.less">
-    <link rel="stylesheet/less" type="text/css" href="/css/responsive.less">
-    <link rel="stylesheet/less" type="text/css" href="/css/font-awesome.less">
-    <link rel="stylesheet/less" type="text/css" href="/css/font-awesome-ie7.less">
-    <link rel="stylesheet/less" type="text/css" href="/css/style.min.less">
-    <script src="/js/less.min.js" type="text/javascript"></script>
+    <link href="/css/style.css" rel="stylesheet">
   </head>
   <body>
   <div class="navbar navbar-fixed-top">
@@ -44,7 +39,8 @@
           </a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li class="active"><a href="/"><i class="icon-home icon-white"></i>Home</a></li>
+              <li><a href="/"><i class="icon-home icon-white"></i>Home</a></li>
+              <li><a href="/apps.html"><i class="icon-bolt icon-white"></i>Apps</a></li>
             </ul>
           </div>
         </div>
@@ -70,5 +66,8 @@
     </div>
     <script src="/js/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
+    <script src="https://www.google.com/jsapi"></script>
+    <script src="https://www.google.com/uds/?file=visualization&amp;v=1.0&amp;packages=corechart" type="text/javascript"></script><script src="https://www.google.com/uds/api/visualization/1.0/66b81c45612b098032b562b20ed13080/format+en,default,corechart.I.js" type="text/javascript"></script>
+    <script src="/js/front.js"></script>
   </body>
 </html>
