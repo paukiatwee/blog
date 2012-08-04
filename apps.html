@@ -3,5 +3,14 @@ layout: default
 title: Apps
 ---
 <h2>{{ page.title }} <small>simple apps</small></h2>
-<h3>AWS Pricing comparisons chart</h3>
-<div id="chart" class="chart" data-type="line" data-remote="/aws-data.json"></div>
+<h3>AWS Pricing comparisons chart <small>Virginia</small></h3>
+
+<select>
+  <optgroup label="US East">
+    <option>Virginia</option>
+  </optgroup>
+  <optgroup label="Asia">
+    <option>Singapore</option>
+  </optgroup>
+</select>
+<div id="chart" class="chart" data-type="line" style="width: 100%; height: 300px;" data-remote="/aws-data.json"></div>

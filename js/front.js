@@ -9,34 +9,94 @@ $(function() {
     if(url === $(this).attr("href")) {
       $(this).parent().addClass("active");
     }
-  })
-  google.setOnLoadCallback(drawCharts);
-})
+  });
 
-function drawCharts() {
-  $(".chart").each(function() {
-    $.getJSON($(this).data("remote"), function(json) {
 
-      var raw = [
-          ['Month', 'On Demand', 'Reserved - Light', 'Reserved - Medium', 'Reserved - Heavy', 'Sport Instance'],
-          ['0',  0,     json.aml, json.amm, json.amh, 0],
-          ['2',  json.am_d * 750 * 2, json.am_l * 750 * 2 + json.aml, json.am_m * 750 * 2 + json.amm, json.am_h * 750 * 2 + json.amh, json.am_s * 750 * 2],
-          ['4',  json.am_d * 750 * 4, json.am_l * 750 * 4 + json.aml, json.am_m * 750 * 4 + json.amm, json.am_h * 750 * 4 + json.amh, json.am_s * 750 * 4],
-          ['6',  json.am_d * 750 * 6, json.am_l * 750 * 6 + json.aml, json.am_m * 750 * 6 + json.amm, json.am_h * 750 * 6 + json.amh, json.am_s * 750 * 6],
-          ['8',  json.am_d * 750 * 8, json.am_l * 750 * 8 + json.aml, json.am_m * 750 * 8 + json.amm, json.am_h * 750 * 8 + json.amh, json.am_s * 750 * 8],
-          ['10',  json.am_d * 750 * 10, json.am_l * 750 * 10 + json.aml, json.am_m * 750 * 10 + json.amm, json.am_h * 750 * 10 + json.amh, json.am_s * 750 * 10],
-          ['12',  json.am_d * 750 * 12, json.am_l * 750 * 12 + json.aml, json.am_m * 750 * 12 + json.amm, json.am_h * 750 * 12 + json.amh, json.am_s * 750 * 12]
-        ];
+  var options = {
+    lines: { show: true },
+    points: { 
+      show: true
+    },
+      xaxes: [{
+        axisLabel: 'Months'
+      }],
+      yaxes: [{
+        axisLabel: 'Cost (USD)'
+      }],
+      zoom: {
+        interactive: true
+      },
+      pan: {
+        interactive: true
+      }
+    };
+  var data = [];
+  var placeholder = $("#chart");
 
-      var data = google.visualization.arrayToDataTable(raw);
-      // Set chart options
-      var options = {'width':730, 'height':500};
-      var chart = new google.visualization.LineChart(document.getElementById('chart'));
-      chart.draw(data, options);
-    });
-  })
-}
+  $.plot(placeholder, data, options);
 
+  $.getJSON("/data.json", function(json) {
+    data = [];
+    for(var row in json.rows) {
+      prices = [];
+      for(var i = 0; i <= 12; i+= 2) {
+        prices.push([i, json.rows[row].price * i * 750 + json.rows[row].upfront]);
+      }
+      o = {"label": json.rows[row].label, data: prices};
+      data.push(o);
+      console.log(o);
+    }
+
+    $.plot(placeholder, data, options);
+  });
+
+  //     var options = {series: {lines: {show: true}},
+  //                  zoom: {interactive: true}, pan: {interactive: true}, axes: {xaxis: {label: "X Axis"}}};
+  // var data = [[3, 2], [1, 6]];
+  // // var options = {
+  // //   series: {
+  // //       lines: { show: true },
+  // //       points: { show: true }
+  // //   }
+  // // };
+  // $.plot($("#chart"), [
+  //       {
+  //           data: data
+  //           // lines: { show: true }
+  //       }], options
+  // );
+  // var plot2 = $.plot ($("#chart"), data, options);
+
+});
+
+// $(document).ready(function(){
+//   var plot2 = $.plot ($("#chart"), [[3,7,9,1,4,6,8,2,5]], {
+//       // Give the plot a title.
+//       title: 'Plot With Options',
+//       // You can specify options for all axes on the plot at once with
+//       // the axesDefaults object.  Here, we're using a canvas renderer
+//       // to draw the axis label which allows rotated text.
+//       // axesDefaults: {
+//       //   labelRenderer: $.jqplot.CanvasAxisLabelRenderer
+//       // },
+//       // An axes object holds options for all axes.
+//       // Allowable axes are xaxis, x2axis, yaxis, y2axis, y3axis, ...
+//       // Up to 9 y axes are supported.
+//       axes: {
+//         // options for each axis are specified in seperate option objects.
+//         xaxis: {
+//           label: "X Axis",
+//           // Turn off "padding".  This will allow data point to lie on the
+//           // edges of the grid.  Default padding is 1.2 and will keep all
+//           // points inside the bounds of the grid.
+//           pad: 0
+//         },
+//         yaxis: {
+//           label: "Y Axis"
+//         }
+//       }
+//     });
+// });
 String.prototype.endsWith = function(suffix) {
   return this.indexOf(suffix, this.length - suffix.length) !== -1;
 };
