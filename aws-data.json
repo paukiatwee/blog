@@ -1,10 +1,35 @@
 {
-	"am_d": 0.160,
-	"am_l": 0.098,
-	"am_m": 0.063,
-	"am_h": 0.05,
-	"am_s": 0.02,
-	"aml": 138,
-	"amm": 320,
-	"amh": 390
+	"labes": {
+		"x": "Months",
+		"y": "Cost(USD)"
+    },
+	"rows": [
+	{
+      "label": "Small (Light Utilization Reserved)",
+      "region": "Virginia",
+      "type": "reserved-light",
+      "upfront": 69,
+      "price": 0.039
+	},
+	{
+      "label": "Small (Medium Utilization Reserved)",
+      "region": "Virginia",
+      "type": "reserved-medium",
+      "upfront": 160,
+      "price": 0.024
+	},
+	{
+      "label": "Small (Heavy Utilization Reserved)",
+      "region": "Virginia",
+      "type": "reserved-heavy",
+      "upfront": 195,
+      "price": 0.016
+	},
+	{
+      "label": "Small (On Demand)",
+      "region": "Virginia",
+      "type": "on-demand",
+      "upfront": 0,
+      "price": 0.080
+	}]
 }
