@@ -23,9 +23,6 @@ $(function() {
     yaxes: [{
       axisLabel: 'Cost (USD)'
     }],
-    zoom: {
-      interactive: true
-    },
     pan: {
       interactive: true
     }
