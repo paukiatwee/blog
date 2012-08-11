@@ -2,12 +2,24 @@
 @import "responsive.less";
 @import "font-awesome.less";
 
+.shadow {
+  -webkit-box-shadow: 0 8px 50px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 8px 50px rgba(0, 0, 0, 0.2);
+  -box-shadow: 0 8px 50px rgba(0, 0, 0, 0.2);
+}
+
 body{
   background-image: url('/img/bg.jpg');
   padding-top: 60px;
   overflow-y: scroll;
 }
-
+footer{
+  margin-bottom: 10px;
+}
+.content img.thumbnail {
+  padding-left: 0px;
+  padding-right: 0px;
+}
 @media (max-width: 979px) and (min-width: 768px) {
   body{
     padding-top: 0px;
