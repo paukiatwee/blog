@@ -29,22 +29,21 @@ $(function() {
   };
   var data = [];
   var placeholder = $("#chart");
-
-  $.plot(placeholder, data, options);
-
-  $.getJSON("/aws-data.json", function(json) {
-    data = [];
-    for(var row in json.rows) {
-      prices = [];
-      for(var i = 0; i <= 12; i+= 2) {
-        prices.push([i, json.rows[row].price * i * 750 + json.rows[row].upfront]);
+  if(placeholder.length > 0) {
+    $.getJSON("/aws-data.json", function(json) {
+      data = [];
+      for(var row in json.rows) {
+        prices = [];
+        for(var i = 0; i <= 12; i+= 2) {
+          prices.push([i, json.rows[row].price * i * 750 + json.rows[row].upfront]);
+        }
+        o = {"label": json.rows[row].label, data: prices};
+        data.push(o);
       }
-      o = {"label": json.rows[row].label, data: prices};
-      data.push(o);
-    }
 
-    $.plot(placeholder, data, options);
-  });
+      $.plot(placeholder, data, options);
+    });
+  }
 });
 
 String.prototype.endsWith = function(suffix) {

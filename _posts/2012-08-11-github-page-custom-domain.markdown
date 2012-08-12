@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Custom domain for github pages
+description: Custom domain for github pages 
 categories:
 - github-page
 tags:

@@ -3,7 +3,7 @@
   {% if site.categories %}
     <ul class="unstyled">
     {% for category in site.categories %}
-      <li><a href="/categories/{{category | first}}">{{category | first}} ({{category | last | size }})</a></li>
+      <li><a href="/{{category | first}}">{{category | first}} ({{category | last | size }})</a></li>
     {% endfor %}
     </ul>
   {% else %}

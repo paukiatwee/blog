@@ -39,7 +39,7 @@
 # - date_to_html_string: Outputs the post.date as formatted html, with hooks for CSS styling.
 #
 # Available _config.yml settings :
-# - category_dir:          The subfolder to build category pages in (default is 'categories').
+# - category_dir:          The subfolder to build category pages in (default is '').
 # - category_title_prefix: The string used before the category name in the page title (default is 
 #                          'Category: ').
 module Jekyll
@@ -63,10 +63,10 @@ module Jekyll
       self.read_yaml(File.join(base, '_layouts'), 'category_index.html')
       self.data['category']    = category
       # Set the title for this page.
-      title_prefix             = site.config['category_title_prefix'] || 'Category: '
+      title_prefix             = site.config['category_title_prefix'] || 'Category - '
       self.data['title']       = "#{title_prefix}#{category}"
       # Set the meta-description for this page.
-      meta_description_prefix  = site.config['category_meta_description_prefix'] || 'Category: '
+      meta_description_prefix  = site.config['category_meta_description_prefix'] || 'Category - '
       self.data['description'] = "#{meta_description_prefix}#{category}"
     end
     
@@ -92,7 +92,7 @@ module Jekyll
     # Loops through the list of category pages and processes each one.
     def write_category_indexes
       if self.layouts.key? 'category_index'
-        dir = self.config['category_dir'] || 'categories'
+        dir = self.config['category_dir'] || ''
         self.categories.keys.each do |category|
           self.write_category_index(File.join(dir, category), category)
         end
@@ -129,7 +129,7 @@ module Jekyll
     # Returns string
     def category_links(categories)
       categories = categories.sort!.map do |item|
-        '<a href="/categories/'+item+'/">'+item+'</a>'
+        '<a href="/'+item+'/">'+item+'</a>'
       end
       
       connector = "and"

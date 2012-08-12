@@ -7,4 +7,3 @@ permalink: /:categories/:title/
 
 tag_page_layout: tag_page
 tag_page_dir: tag
-category_dir: categories
