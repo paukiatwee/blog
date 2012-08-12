@@ -3,7 +3,7 @@ url: http://paukiatwee.github.com
 author: Pau Kiat Wee
 title: Pau Kiat Wee's Blog
 
-permalink: /:title/
+permalink: /:categories/:title/
 
 tag_page_layout: tag_page
 tag_page_dir: tag
