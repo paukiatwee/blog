@@ -1,3 +1,3 @@
 #/bin/bash
-cd css
-coyote style.less:style.css -w
+cd less
+coyote style.less:../css/style.css -w
