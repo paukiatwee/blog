@@ -4,8 +4,16 @@
 
 .shadow {
   -webkit-box-shadow: 0 8px 50px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 0 8px 50px rgba(0, 0, 0, 0.2);
-  -box-shadow: 0 8px 50px rgba(0, 0, 0, 0.2);
+     -moz-box-shadow: 0 8px 50px rgba(0, 0, 0, 0.2);
+         -box-shadow: 0 8px 50px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 8px 50px rgba(0, 0, 0, 0.2);
+}
+
+.transition(@time: 0.2s) {
+  -webkit-transition: all @time ease-in-out;
+     -moz-transition: all @time ease-in-out;
+       -o-transition: all @time ease-in-out;
+          transition: all @time ease-in-out;
 }
 
 body{
@@ -74,4 +82,7 @@ a {
 
 .icon-home::before {
   content: "";
+}
+h2 a {
+  .transition;
 }

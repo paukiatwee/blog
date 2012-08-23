@@ -44,6 +44,16 @@ $(function() {
       $.plot(placeholder, data, options);
     });
   }
+
+  // external link by default is open in new window, i dont want use html each time
+  // link to external page
+  $("a").each(function() {
+    var link = $(this).attr("href");
+    
+    if(link && (link.indexOf("http://") == 0 || link.indexOf("https://") == 0)) {
+      $(this).attr("target", "_blank");
+    }
+  });
 });
 
 String.prototype.endsWith = function(suffix) {
