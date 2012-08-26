@@ -6,4 +6,7 @@ categories:
 tags:
 - jekyll
 ---
-This is hello world post that running on <a href="https://help.github.com/categories/20/articles">Github page</a> and <a href="https://github.com/mojombo/jekyll/">Jekyll</a>!
+This is hello world post that running on [Github page][github_page] and [Jekyll][jekyll]!
+
+[github_page]: https://help.github.com/categories/20/articles
+[jekyll]: https://github.com/mojombo/jekyll/

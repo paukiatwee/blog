@@ -3,6 +3,8 @@ url: http://paukiatwee.github.com
 author: Pau Kiat Wee
 title: Pau Kiat Wee's Blog
 
+markdown: maruku
+
 permalink: /:categories/:title/
 
 tag_page_layout: tag_page
