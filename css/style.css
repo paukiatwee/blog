@@ -1191,5 +1191,8 @@ a:hover{text-decoration:none;}
 .minor h3{color:#d05d2a;}
 .icon-home::before{content:"";}
 h2 a{-webkit-transition:all 0.2s ease-in-out;-moz-transition:all 0.2s ease-in-out;-o-transition:all 0.2s ease-in-out;transition:all 0.2s ease-in-out;}
+.social-share small{vertical-align:top;}
+.social-share .tweet{display:inline;margin-right:-10px;}
+.social-share .plusone{display:inline;}
  
 
