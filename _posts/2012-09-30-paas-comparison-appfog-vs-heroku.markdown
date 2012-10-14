@@ -24,7 +24,7 @@ However, this can be a issue for you, if you choose to deploy your app to [Herok
 
 I have a web application on production, suddenly my application is getting huge traffic after a tweet by a famous person. I want quickly scale my application to handle such traffic.
 
-According to AppFog pricing model, it is by subscription based model by select a plan. However, assume their able to upgrade plan within minutes, then it is fine. But what if upgrade plan required more than 4 hours? Maybe your application will crash before upgrade to better plan. Futhermore, after 1 week your application traffic is back to normal, I believe you want to downgrade plan to save some money, which required you to submit a ticket to their support. However, AppFog offer free plan with [2GB of RAM][appfog-free], equivalent up to 4 dynos at heroku.
+According to AppFog pricing model, it is by subscription based model by select a plan. <strike>However, assume their able to upgrade plan within minutes, then it is fine</strike> **(See Comment)**. But what if upgrade plan required more than 4 hours? Maybe your application will crash before upgrade to better plan. Futhermore, after 1 week your application traffic is back to normal, I believe you want to downgrade plan to save some money, which required you to submit a ticket to their support. However, AppFog offer free plan with [2GB of RAM][appfog-free], equivalent up to 4 dynos at heroku.
 
 Heroku is pay as you go, scale on demand PaaS, so this kind of senerio will not affect heroku users. Futhermore, you can scale to 10 dynos for an hours then scale back to 2 dynos. Cool.
 
