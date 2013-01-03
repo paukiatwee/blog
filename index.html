@@ -6,7 +6,7 @@ title: Welcome
   <h2><a href="{{ post.url }}" title="{{ post.title }}" rel="bookmark">{{ post.title }}</a></h2>
   <small>{{ post.date | date_to_string }}</small>
   <div class="content">
-    {{post.content}}
+    {{post.content | more: "excerpt", post.url }}
   </div>
   <hr />
 {% endfor %}

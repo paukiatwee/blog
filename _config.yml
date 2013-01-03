@@ -3,9 +3,16 @@ url: http://paukiatwee.github.com
 author: Pau Kiat Wee
 title: Pau Kiat Wee's Blog
 
-markdown: maruku
+markdown: kramdown
+kramdown: 
+  use_coderay: true
 
 permalink: /:categories/:title/
 
 tag_page_layout: tag_page
 tag_page_dir: tag
+
+# gem install jekyll-tagging
+
+# sudo yum install libxml2-devel libxslt libxslt-devel
+# gem install nokogiri

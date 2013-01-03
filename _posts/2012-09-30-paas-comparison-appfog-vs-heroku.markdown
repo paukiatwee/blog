@@ -12,6 +12,8 @@ Recently I have been playing PaaS for test thing out, and with recent General Av
 
 So, there are many people think, what are their primary features that make you stick to particular PaaS provider? Lets do the comparison using case study.
 
+<!--more-->
+
 ### Memory Management
 
 Do you ever come across a senario where your app is consume 80MB most of the time, or well, 512MB is not enough for you when you deploy a huge Java Web Application (Yeah, Java)?

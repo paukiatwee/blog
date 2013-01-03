@@ -14,6 +14,7 @@ Recently [PaaS][paas] (Platform as a service) is new technologies that grow rapi
 
 In this post, I will do a simple load test againts these two provider using Apache Benchmark, to see which one is performance better, and the result is surprising. The load test I doing is againt a simple Java web application available on at [here][source]. The main reason I use this simple application is because AppFog currently is having [issue][issue] with Java application, thus I only can use the sample provided by them. I deployed same application to both of the provider. For AppFog, I deployed to AWS Virginia DC.
 
+<!--more-->
 
 #### CloudFoundry
 <table class="table table-striped table-condensed table-bordered table-hover">

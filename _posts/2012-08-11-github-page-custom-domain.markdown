@@ -11,6 +11,8 @@ tags:
 ---
 [Github.com][github] provide free blog platform for geeks and hackers. One of the features include custom domain, by default the blog domain is **USERNAME.github.com** after you create a repository with **USERNAME.github.com** at your github account.
 
+<!--more-->
+
 To use custom domain, first you need to have a domain, either from [godaddy.com][godaddy] or [namecheap.com][namecheap], in this post, I will use [namecheap.com][namecheap].
 
 First, create a file **CNAME**. Write the custom domain in the file, in my case is **dreamand.me**. Then commit and push to your repository.

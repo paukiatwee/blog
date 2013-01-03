@@ -13,6 +13,9 @@
     {% else %}
     <meta name="robots" content="noodp, noydir" />
     {% endif %}
+    {% if page.keywords %}
+    <meta name="keywords" content="{{page.keywords}}" />
+    {% endif %}
     {% if page.description %}
     <meta name="description" content="{{page.description}}" />
     {% else %}
