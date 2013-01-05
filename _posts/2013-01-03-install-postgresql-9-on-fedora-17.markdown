@@ -81,11 +81,23 @@ Restart PostgreSQL to make new authetication method take effect.
 systemctl restart postgresql.service
 ~~~
 
-### Testing installation
+### Install PostgreSQL GUI Client
+If you want to manage PostgreSQL using a GUI client, you need to install `pgadmin3`.
+
+~~~
+sudo yum install pgadmin3
+~~~
+
+Then you can open  pgadmin gui.
+
+![pgadmin3 screenshot](/img/posts/pgadmin3-gui.png "pgadmin3 screenshot")
+
+
+### Test installation
 To test the installation, try to login as `pgadmin`.
 
 ~~~
-psql -U pgadmin -w
+psql -U pgadmin -W
 Password for user pgadmin:
 psql (9.1.7)
 Type "help" for help.
