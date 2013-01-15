@@ -78,11 +78,18 @@ a {
   h3 {
     color: #D05D2A
   }
+  &.ads {
+    text-align: center;
+    padding: 10px;
+  }
 }
 
-.icon-home::before {
-  content: "";
+[class^="icon-"] {
+  &.font {
+    background-image:  none !important;
+  }
 }
+
 h2 a {
   .transition;
 }

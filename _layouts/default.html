@@ -52,8 +52,9 @@
           </a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li><a href="/"><i class="icon-home icon-white"></i>Home</a></li>
-              <li><a href="/app"><i class="icon-bolt icon-white"></i>Apps</a></li>
+              <li><a href="/"><i class="icon-home font"></i>Home</a></li>
+              <li><a href="/app/"><i class="icon-bolt font"></i>Apps</a></li>
+              <li><a href="/privacy/"><i class="icon-lock font"></i>Privacy</a></li>
             </ul>
           </div>
         </div>
@@ -67,8 +68,9 @@
           </div>
         </div>
           <div class="span4">
-	        {% include about.html %}
-	        {% include categories.html %}
+          {% include side-ads.html %}
+          {% include about.html %}
+          {% include categories.html %}
           </div>
       </div>
       <div class="row">

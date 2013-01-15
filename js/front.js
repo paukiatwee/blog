@@ -54,11 +54,6 @@ $(function() {
       $(this).attr("target", "_blank");
     }
   });
-
-  // automatic add css class into img
-  $("img").each(function() {
-    $(this).addClass("thumbnail");
-  });
 });
 
 String.prototype.endsWith = function(suffix) {
