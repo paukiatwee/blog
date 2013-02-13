@@ -2,7 +2,7 @@
 layout: default
 ---
 <h2>{{ page.title }}</h2>
-<div class="social-share"><small>{{ page.date | date_to_string }}</small>&nbsp;&nbsp;&nbsp;
+<div class="social-share"><small>{{ page.date | date: "%d %B %Y" }}</small>&nbsp;&nbsp;&nbsp;
   <div class="tweet"><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://dreamandme.com{{ page.url}}" data-text="{{ page.title }}">Tweet</a></div>
   <div class="g-plusone" data-size="medium"></div>
 </div>
