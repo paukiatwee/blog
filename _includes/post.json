@@ -1,0 +1,5 @@
+{
+  "id"    : "http://dreamand.me{{ post.url }}",
+  "title"   : "{{ post.title }}",
+  "content" : "{{ post.content | strip_html | strip_newlines | remove:'"'  }}"
+}
