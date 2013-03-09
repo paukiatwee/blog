@@ -1,11 +1,13 @@
 ---
 layout: post
 title: Fulltext Search on Jekyll Site
+description: How to bring powerfull fulltext to jekyll static generated site? Using lunc javascript framewor, you can bring the fulltext search to your blog in minutes.
 categories:
 - web
 tags:
 - fulltext search
 - jekyll
+- jekyll fulltext search
 - solr
 - lunrjs
 ---
