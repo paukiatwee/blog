@@ -56,8 +56,9 @@ $(function() {
   });
 
   // automatic add css class into img     
-   $("img").each(function() {     
-     $(this).addClass("thumbnail");      
+   $(".main img").each(function() {     
+     $(this).addClass("thumbnail");
+     $(this).addClass("center");
    });
 });
 
