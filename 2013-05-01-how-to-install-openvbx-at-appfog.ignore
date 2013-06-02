@@ -1,0 +1,152 @@
+---
+layout: post
+title: Install OpenVBX at CloudFoundry/AppFog to Send Bulk SMS
+description: Install OpenVBX at CloudFoundry/AppFog to send bulk SMS within minutes for free
+keywords: appfog, openvbs, bulk sms, sms marketing, twilio, clodfoundry
+categories:
+- cloud
+tags:
+- appfog
+- cloudfondry
+- openvbx
+- bulk-sms
+- howto
+---
+
+Ever wonder how to setup your own SMS gateway within minutes without actually code the app for 6 months? Now with [AppFog][appfog]/[Cloud Foundry][cloudfoundry], [Twilio][twilio] and [OpenVBX][openvbx] you can make it happen within minutes!
+
+
+[OpenVBX][openvbx] allows developers to build voice and SMS applications for business, such as toll free phone numbers, call forwarding, voicemail, visual voicemail, voicemail transcriptions, and auto-attendants.  It's like Google Voice, but open source and for business.
+
+<!--more-->
+
+### Prerequisite
+Before get started, you need have the following accounts, so if you does not yet, please go sign up:
+
+- [AppFog][appfog] or [Cloud Foundry][cloudfoundry]
+- [Twilio][twilio]
+
+Then you download [OpenVBX][openvbx] from their site and unzip to a folder.
+
+![Download OpenVBX](/img/posts/download-openvbx.png "Download OpenVBX")
+
+### Install OpenVBX at AppFog
+
+#### Prepare To Get AppFog Database Credential
+
+AppFog's web console does not display database credential and `af tunnel` does not display the database URL for us to connect, so the only solution is to modify our PHP code to expose `VCAP_SERVICES` environment variable. To do so, duplicate `config/database-sample.php` as `config/database.php` and use the following code:
+
+~~~
+// extra VCAP_SERVICES
+$services_json = json_decode(getenv("VCAP_SERVICES"),true);
+$mysql_config = $services_json["mysql-5.1"][0]["credentials"];
+
+$username = $mysql_config["username"];
+$password = $mysql_config["password"];
+$hostname = $mysql_config["hostname"];
+$port = $mysql_config["port"];
+$db = $mysql_config["name"];
+
+
+
+$active_group = "default";
+$active_record = TRUE;
+
+$db["default"]["hostname"] = $hostname.":".$port;
+$db["default"]["username"] = $username;
+$db["default"]["password"] = $password;
+$db["default"]["database"] = $db;
+$db["default"]["dbdriver"] = "mysql";
+$db["default"]["dbprefix"] = "";
+$db["default"]["pconnect"] = TRUE;
+$db["default"]["db_debug"] = TRUE;
+$db["default"]["cache_on"] = FALSE;
+$db["default"]["cachedir"] = "";
+$db["default"]["char_set"] = "utf8";
+$db["default"]["dbcollat"] = "utf8_general_ci";
+~~~
+
+#### Login
+
+First, you need login to [AppFog][appfog] using `af` command line tool.
+
+~~~
+af login
+Attempting login to [https://api.appfog.com]
+Email: username@domain.com
+Password: **********
+Successfully logged into [https://api.appfog.com]
+~~~
+
+#### Create AppFog App
+
+~~~
+af push dreamandme-opevbx
+Would you like to deploy from the current directory? [Yn]: y
+Detected a PHP Application, is this correct? [Yn]: y
+1: AWS US East - Virginia
+2: AWS EU West - Ireland
+3: AWS Asia SE - Singapore
+4: Rackspace AZ 1 - Dallas
+5: HP AZ 2 - Las Vegas
+Select Infrastructure: 3
+Application Deployed URL [dreamandme-opevbx.ap01.aws.af.cm]:
+Memory reservation (128M, 256M, 512M, 1G, 2G) [128M]:
+How many instances? [1]:
+Create services to bind to 'dreamandme-opevbx'? [yN]: y
+1: mongodb
+2: mysql
+3: postgresql
+4: rabbitmq
+5: redis
+What kind of service?: 2
+Specify the name of the service [mysql-1cf3c]: openvbx-database
+Create another? [yN]:
+Would you like to save this configuration? [yN]:
+Creating Application: OK
+Creating Service [openvbx-database]: OK
+Binding Service [openvbx-database]: OK
+Uploading Application:
+  Checking for available resources: OK
+  Processing resources: OK
+  Packing application: OK
+  Uploading (44K): OK
+Push Status: OK
+Staging Application 'dreamandme-opevbx': OK
+Starting Application 'dreamandme-opevbx': OK
+
+~~~
+
+Go to your OpenVBX URL, you can see the app is deployed ucessfully.
+
+![OpenVBX running](/img/posts/openvbx-running.png "OpenVBX running")
+
+### Setup Database Credential in OpenVBX
+
+After we have deploy and they to browse to to get database credential, we need to write into config file, duplicate `config/database-sample.php` as `config/database.php` and fill in nessasery details:
+
+~~~
+$active_group = "default";
+$active_record = TRUE;
+
+$db["default"]["hostname"] = "localhost:8889";
+$db["default"]["username"] = "root";
+$db["default"]["password"] = "root";
+$db["default"]["database"] = "OpenVBX";
+$db["default"]["dbdriver"] = "mysql";
+$db["default"]["dbprefix"] = "";
+$db["default"]["pconnect"] = TRUE;
+$db["default"]["db_debug"] = TRUE;
+$db["default"]["cache_on"] = FALSE;
+$db["default"]["cachedir"] = "";
+$db["default"]["char_set"] = "utf8";
+$db["default"]["dbcollat"] = "utf8_general_ci";
+~~~
+
+
+
+
+[cloudfoundry]: http://www.cloudfoundry.com
+[appfog]: https://www.appfog.com
+[twilio]: http://www.twilio.com
+[openvbx]: http://www.openvbx.org

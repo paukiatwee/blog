@@ -7,11 +7,11 @@ categories:
 tags:
 - jee7
 - json
-- jrs
+- jrs-353
 ---
 
 
-JEE 7, the next release of Java Enterprice for large application will include a standard JSON API without using third party JSON API such as [JSON.org][jsobn-org]. Is time to use standard API for Java web development.
+JEE 7, the next release of Java Enterprice Edition for large application will include a standard JSON API without using third party JSON API such as [JSON.org][jsobn-org]. Is time to use standard API for Java web development.
 
 <!--more-->
 
