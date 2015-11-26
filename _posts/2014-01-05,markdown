@@ -1,0 +1,156 @@
+---
+layout: post
+title: Java Websocket API With Custom Decoder
+description: Java JEE7 now support websocket and this post will teach you how to use custom decoder to decode json from client.
+categories:
+- java
+tags:
+- websocket
+- realtime
+---
+
+[Ghost][Ghost] is the new blogging platform that focus on simpicity. Setup Ghost blog is dead simple and I will show you how to install Ghost in Centos 6 OS. Let's get started!
+
+
+<!--more-->
+
+### CentOS
+
+First step is to make sure CentOS is up to date:
+~~~
+yum -y update
+~~~
+
+
+Now install "Development Tools". It's a group of tools for compiling software from sources:
+
+~~~
+yum -y groupinstall "Development Tools"
+~~~
+
+
+
+### Create Ghost User
+
+~~~
+useradd ghost
+~~~
+
+Change `ghost` user password:
+~~~
+passwd ghost
+Changing password for user ghost.
+New password: 
+Retype new password: 
+passwd: all authentication tokens updated successfully.
+~~~
+
+Logout and login as `ghost` user:
+~~~
+exit
+ssh ghost@<IP>
+ghost@<IP>'s password: 
+~~~
+
+
+### Install NodeJS
+
+I recommended install Node Version Managet (nvm) to manage multiple NodeJS versions:
+~~~
+curl https://raw.github.com/creationix/nvm/master/install.sh | sh
+# or use eget
+wget -qO- https://raw.github.com/creationix/nvm/master/install.sh | sh
+
+# outout
+Initialized empty Git repository in /home/ghost/.nvm/.git/
+remote: Reusing existing pack: 867, done.
+remote: Counting objects: 4, done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 871 (delta 0), reused 4 (delta 0)
+Receiving objects: 100% (871/871), 158.18 KiB, done.
+Resolving deltas: 100% (402/402), done.
+
+=> Appending source string to /home/ghost/.bash_profile
+=> Close and reopen your terminal to start using NVM
+
+~~~
+
+
+After install NVM, reload `/home/ghost/.bash_profile` or close and reopen your terminal to start using NVM:
+~~~
+source ~/.bash_profile
+~~~
+
+Next step is use NVM install latest Node 0.10.x:
+
+~~~
+nvm ls-remote
+
+
+# output
+...
+...
+  v0.10.10
+  v0.10.11
+  v0.10.12
+  v0.10.13
+  v0.10.14
+  v0.10.15
+  v0.10.16
+  v0.10.17
+  v0.10.18
+  v0.10.19
+  v0.10.20
+  v0.10.21
+  v0.10.22
+  v0.10.23
+  v0.10.24
+...
+...
+
+# install latest Node 0.10.x
+nvm install 0.10.24
+
+# output
+######################################################################## 100.0%
+-bash: manpath: command not found
+Now using node v0.10.24
+
+
+# now set default alias to node 0.10.24
+nvm alias default 0.10.24
+
+# output
+default -> 0.10.24 (-> v0.10.24)
+~~~
+
+
+### Install Ghost
+
+Is time to install [Ghost][Ghost]!
+
+First, download binary:
+~~~
+wget https://ghost.org/zip/ghost-0.3.3.zip
+
+## note if you get ERROR: certificate common name “ssl2554.cloudflare.com” doesn’t match requested host name “ghost.org”. you can skip validate SSL cert using following command
+wget --no-check-certificate https://ghost.org/zip/ghost-0.3.3.zip
+~~~
+
+Unzip to ghost dir:
+~~~
+unzip -uo ghost.zip -d ghost
+~~~
+
+### Start Ghost
+
+To run `Ghost` from command line:
+~~~
+npm start
+~~~
+
+After started, browse to [127.0.0.1:2368](127.0.0.1:2368) test.
+
+
+
+[Ghost]: ghost.org

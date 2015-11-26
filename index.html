@@ -3,10 +3,14 @@ layout: default
 title: Welcome
 ---
 {% for post in site.posts limit:10 %}
-  <h2><a href="{{ post.url }}" title="{{ post.title }}" rel="bookmark">{{ post.title }}</a></h2>
+<article>
+  <div class="post-title">
+    <h2><a href="{{ post.url }}" title="{{ post.title }}" rel="bookmark">{{ post.title }}</a></h2>
+  </div>
   <small>{{ post.date | date: "%d %B %Y" }}</small>
   <div class="content">
     {{post.content | more: "excerpt", post.url }}
   </div>
   <hr />
+</article>
 {% endfor %}

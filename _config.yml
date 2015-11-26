@@ -5,7 +5,7 @@ title: Dream and Me
 
 markdown: kramdown
 kramdown: 
-  use_coderay: true
+  enable_coderay: true
 
 permalink: /:categories/:title/
 

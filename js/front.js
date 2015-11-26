@@ -3,9 +3,6 @@ $(function() {
   // auto active nav item
   $("ul.nav li a").each(function() {
     var url = window.location.pathname;
-    if(url.endsWith("/") && url.length > 1) {
-      url = url.substring(0, url.length - 1);
-    }
     if(url === $(this).attr("href")) {
       $(this).parent().addClass("active");
     }

@@ -1,93 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% if page.author %}
-    <meta name="author" content="{{page.author}}" />
-    {% else %}
-    <meta name="author" content="{{site.author}}" />
-    {% endif %}
-    {% if page.robots %}
-    <meta name="robots" content="{{ page.robots }}" />
-    {% else %}
-    <meta name="robots" content="noodp, noydir" />
-    {% endif %}
-    {% if page.keywords %}
-    <meta name="keywords" content="{{page.keywords}}" />
-    {% endif %}
-    {% if page.description %}
-    <meta name="description" content="{{page.description}}" />
-    {% else %}
-    <meta name="description" content="Learn how to be a better programmer using technologies, a blog by geek" />
-    {% endif %}
-    {% if page.keyword %}
-    <meta name="keyword" content="{{page.keyword}}" />
-    {% endif %}
-    {% if page.title %}
-    <title>{{page.title}} | {{site.title}}</title>
-    {% else %}
-    <title>{{page.title}}</title>
-    {% endif %}
-    <link href="/css/style.css" rel="stylesheet">
-    <script type="text/javascript">
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-33747052-1']);
-      _gaq.push(['_trackPageview']);
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    </script>
-  </head>
-  <body>
-  <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <div class="nav-collapse">
-            <ul class="nav">
-              <li><a href="/"><i class="icon-home font"></i>Home</a></li>
-              <li><a href="/app/"><i class="icon-bolt font"></i>Apps</a></li>
-              <li><a href="/privacy/"><i class="icon-lock font"></i>Privacy</a></li>
-            </ul>
-          </div>
-        </div>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% if page.author %}
+  <meta name="author" content="{{page.author}}" />
+  {% else %}
+  <meta name="author" content="{{site.author}}" />
+  {% endif %}
+  {% if page.robots %}
+  <meta name="robots" content="{{ page.robots }}" />
+  {% else %}
+  <meta name="robots" content="noodp, noydir" />
+  {% endif %}
+  {% if page.keywords %}
+  <meta name="keywords" content="{{page.keywords}}" />
+  {% endif %}
+  {% if page.description %}
+  <meta name="description" content="{{page.description}}" />
+  {% else %}
+  <meta name="description" content="Learn how to be a better programmer using technologies, a blog by geek" />
+  {% endif %}
+  {% if page.keyword %}
+  <meta name="keyword" content="{{page.keyword}}" />
+  {% endif %}
+  {% if page.title %}
+  <title>{{page.title}} | {{site.title}}</title>
+  {% else %}
+  <title>{{page.title}}</title>
+  {% endif %}
+  <link href="https://cdn.jsdelivr.net/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/fontawesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="/less/style.css" rel="stylesheet">
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-33747052-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</head>
+<body>
+{% include top.html %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="well main shadow">
+        {{content}}
       </div>
     </div>
-    <div class="container">
-      <div class="row">
-        <div class="span8">
-          <div class="well main shadow">
-            {{content}}
-          </div>
-        </div>
-          <div class="span4">
-          {% include side-ads.html %}
-          {% include search.html %}
-          {% include about.html %}
-          {% include categories.html %}
-          </div>
-      </div>
-      <div class="row">
-        <div class="span12">
-          {% include footer.html %}
-        </div>
-      </div>
+    <div class="col-md-4">
+      {% include side-ads.html %}
+      {% include search.html %}
+      {% include about.html %}
+      {% include categories.html %}
     </div>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script src="/js/jquery.flot.js"></script>
-    <script src="/js/jquery.flot.navigate.js"></script>
-    <script src="/js/jquery.flot.resize.js"></script>
-    <script src="/js/jquery.flot.axislabels.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/lunr.min.js"></script>
-    <script src="/search.js"></script>
-    <script src="/js/front.js"></script>
-  </body>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      {% include footer.html %}
+    </div>
+  </div>
+</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="/js/jquery.flot.js"></script>
+<script src="/js/jquery.flot.navigate.js"></script>
+<script src="/js/jquery.flot.resize.js"></script>
+<script src="/js/jquery.flot.axislabels.js"></script>
+<script src="https://cdn.jsdelivr.net/lunr/0.6.0/lunr.min.js"></script>
+<script src="/search.js"></script>
+<script src="/js/front.js"></script>
+</body>
 </html>
